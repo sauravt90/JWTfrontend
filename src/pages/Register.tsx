@@ -14,7 +14,7 @@ export const Register = () =>{
     const [loading,setLoading] = useState(true)
     const [users,setUsers] = useState<User[]>([])
     useEffect(() =>{
-        fetch("http://192.168.1.17:8081/getUsers",{
+        fetch("http://localhost:8081/getUsers",{
           method: 'GET'
         }).then(
             async x => {

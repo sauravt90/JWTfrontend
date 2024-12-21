@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode";
 import { Logout } from "./Logout";
 import { useNavigate } from "react-router-dom";
+import { error } from "console";
 
 
 export const Test = () =>{
@@ -57,7 +58,13 @@ export const Test = () =>{
                 } else if (response.status === 403 || response.status === 400) {
                     console.log("not allowed to refresh the token please relogin")
                 }
-            })
+            }).catch(
+                error => {
+                    console.log("please login first")
+                    setFetched(false)
+
+                }
+            )
         }
        },[])
         
